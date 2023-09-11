@@ -1,21 +1,47 @@
 # edu-deploy-frontend-firebase
 
 
-## Skapa firebase project
+## Prerequisit
 
-## bash
+> Log in on firebase and create a new project
 
-```bash
+```shell
+npm install -g firebase-tools
+#eller
 curl -sL https://firebase.tools | bash
 
-mkdir frontend-app
-cd frontend-app
-npx create-react-app .
-
-npm install firebase
-vi ./src/firebase.js
-
 firebase login
+```
+## Instructions
+
+
+```bash
+cd ~
+cd ws
+mkdir gomoku-frontend
+cd gomoku-frontend
+npx create-react-app .
+npm start
+```
+
+```bash
+firebase init hosting
+? Please select an option: Use an existing project
+? Select a default Firebase project for this directory: [PROJECT] ([PROJECT])
+? What do you want to use as your public directory? build
+? Configure as a single-page app (rewrite all urls to /index.html)? No
+? Set up automatic builds and deploys with GitHub? No
+? File public/index.html already exists. Overwrite? No
+
+npm run build
+firebase deploy --only hosting
+```
+
+
+## edit firebase.js if needed
+
+```bash
+vi ./src/firebase.js
 ```
 
 ## firebase.js
